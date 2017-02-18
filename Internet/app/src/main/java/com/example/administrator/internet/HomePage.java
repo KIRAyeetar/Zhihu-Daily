@@ -17,11 +17,11 @@ public class HomePage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
-        //自定义标题
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.home_title);
+
         //设置侧拉
         Button menu=(Button) findViewById(R.id.menu_button);
         final DrawerLayout drawerLayout=(DrawerLayout) findViewById(R.id.drawer_layout_homepage);
@@ -39,7 +39,8 @@ public class HomePage extends Activity {
         //最新新闻
         NewsSetter newsSetter=new NewsSetter();
         newsSetter.setIMGFromInternet("http://news-at.zhihu.com/api/4/news/latest",homepage);newsSetter.setNews(homepage);
+
+        MenuSetter menuSetter=new MenuSetter();
+        menuSetter.getMenuList(this);
     }
-
-
 }

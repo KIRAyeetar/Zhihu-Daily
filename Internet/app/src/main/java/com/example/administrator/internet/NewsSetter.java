@@ -17,6 +17,7 @@ import java.util.List;
  */
 
 public class NewsSetter {
+
     private String responseDate;
     private String news_URL;
     public List<News> newsList=new ArrayList<>();

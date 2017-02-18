@@ -54,7 +54,9 @@ public class AsyncIMG extends AsyncTask<News,Void,Void>{
             public void onClick(View view) {
                 Intent intent=new Intent(AppContext.getContext(),NewsContent.class);
                 Bundle bundle=new Bundle();
+
                 bundle.putString("id", id);
+                bundle.putString("img_title", title);
                 intent.putExtras(bundle);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 AppContext.getContext().startActivity(intent);
