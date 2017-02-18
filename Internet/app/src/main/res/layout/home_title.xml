@@ -5,6 +5,7 @@
 android:orientation="horizontal"
 android:background="#5d74cf">
 <Button
+    android:id="@+id/menu_button"
     android:layout_width="30dp"
     android:layout_height="30dp"
     android:layout_gravity="center"

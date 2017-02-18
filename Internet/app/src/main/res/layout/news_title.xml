@@ -6,6 +6,7 @@
     android:background="#5d74cf">
 
     <Button
+        android:id="@+id/back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="center"
@@ -34,7 +35,7 @@
         android:background="@drawable/discussion"/>
     <TextView
         android:id="@+id/talk_text"
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:gravity="center"
         android:text="..."
@@ -49,7 +50,7 @@
     <TextView
         android:text="..."
         android:id="@+id/good_text"
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:gravity="center"
         android:layout_gravity="center" />

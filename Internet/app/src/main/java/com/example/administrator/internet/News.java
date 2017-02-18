@@ -57,10 +57,6 @@ public class News {
             News news=mNewsList.get(position);
             AsyncIMG asyncIMG=new AsyncIMG(holder.newsImage,holder.newsTitle,holder.simpleNewsView);
             asyncIMG.execute(news);
-
-                   /* HomePage homePage=new HomePage();
-                    homePage.CreateNewNews(holder.simpleNewsView);*/
-
         }
         @Override
         public int getItemCount() {

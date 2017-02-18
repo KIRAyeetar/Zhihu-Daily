@@ -1,8 +1,10 @@
 package com.example.administrator.internet;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,13 +48,18 @@ public class AsyncIMG extends AsyncTask<News,Void,Void>{
         mImageView.setImageBitmap(bitmap);
         mTextView.setText(title);
         //进入单个新闻界面
-        /*simpleNewsView.setOnClickListener(new View.OnClickListener() {
+
+        simpleNewsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HomePage homePage=new HomePage();
-                homePage.CreateNewNews(id);
+                Intent intent=new Intent(AppContext.getContext(),NewsContent.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("id", id);
+                intent.putExtras(bundle);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getContext().startActivity(intent);
             }
-        });*/
+        });
     }
     private Bitmap getIMG (String url){
         if(imageCache.containsKey(url)){
