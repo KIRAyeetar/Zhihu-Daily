@@ -7,13 +7,13 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/main_title"
-        android:label="@string/app_name"
+        android:label="ZhiHu Daily"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".AppContext">
+        android:name=".ToolClass.AppContext">
 
         <activity
-            android:name=".SplashScreen">
+            android:name=".Start.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,11 +21,22 @@
         </activity>
 
         <activity
-            android:name=".HomePage">
+            android:name=".HomePage.HomePage">
         </activity>
-
         <activity
-            android:name=".NewsContent" >
+            android:name=".News.NewsContent" >
+        </activity>
+        <activity
+            android:name=".Theme.ThemeContent">
+        </activity>
+        <activity
+            android:name=".Comment.CommentContent">
+        </activity>
+        <activity
+            android:name=".Editor.EditorsContent">
+        </activity>
+        <activity
+            android:name=".Editor.EditorWebView">
         </activity>
 
     </application>
