@@ -58,33 +58,37 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:gravity="center">
-                    <Button
-                        android:id="@+id/back"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="30dp"
-                        android:background="@drawable/back" />
-                    <Button
-                        android:id="@+id/share_button"
-                        android:layout_marginLeft="75dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="30dp"
-                        android:gravity="center"
-                        android:background="@drawable/share"/>
-                    <Button
-                        android:layout_marginLeft="20dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="30dp"
-                        android:gravity="center"
-                        android:background="@drawable/remember"/>
                     <LinearLayout
-                        android:layout_marginLeft="20dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="4"
-                        android:layout_height="match_parent"
                         android:gravity="center_vertical|left"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/back"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/back" />
+                        <Button
+                            android:id="@+id/share_button"
+                            android:layout_marginLeft="85dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:background="@drawable/share"/>
+                        <Button
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:background="@drawable/remember"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|right"
                         android:orientation="horizontal">
                         <Button
                             android:id="@+id/comment_button"
@@ -111,7 +115,8 @@
                             android:id="@+id/good_text"
                             android:gravity="center_vertical|left"
                             android:layout_width="wrap_content"
-                            android:layout_height="30dp" />
+                            android:layout_height="30dp"
+                            android:layout_marginRight="20dp"/>
                     </LinearLayout>
 
                 </LinearLayout>

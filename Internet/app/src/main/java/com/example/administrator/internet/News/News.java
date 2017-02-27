@@ -21,4 +21,5 @@ public class News {
         return bitmap_url;
     }
     public void setBitmap_url(String bitmap_url){this.bitmap_url=bitmap_url;}
+    public void setId(String id){this.id=id;}
 }

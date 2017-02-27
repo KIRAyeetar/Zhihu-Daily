@@ -16,7 +16,7 @@ import com.example.administrator.internet.R;
  */
 
 public class ThemeContent extends Activity{
-    private static String id;
+    public static String id;
     private static String name;
     private static String description;
     private static String img_url;

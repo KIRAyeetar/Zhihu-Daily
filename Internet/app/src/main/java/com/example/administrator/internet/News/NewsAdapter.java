@@ -31,13 +31,14 @@ public  class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
     private final int CONTENT=1;
     private final int FOOTER=2;
     private final int LOAD_FINISHED=3;
+    private String last_id;
     private int viewType;
     public static int time=Integer.parseInt(GetTime.getNowTime());
 
     private Handler handler=new Handler(){
         public void handleMessage(Message msg){
             if(msg.what==LOAD_FINISHED){
-                NewsAdapter.this.notifyDataSetChanged();
+                NewsAdapter.this.notifyItemChanged(Integer.valueOf(last_id));
             }
         }
     };
@@ -58,6 +59,7 @@ public  class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
     }
     public NewsAdapter(List<News> newsList){
         mNewsList=newsList;
+        last_id=newsList.get(newsList.size()-1).getId();
         //添加为空的news替换footer
         mNewsList.add(new News(null,null,null));
     }
@@ -87,9 +89,9 @@ public  class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
         }else if(getItem(position).getId()==null){
             //Bitmap_url为空就说明此footer未被加载过
             if(getItem(position).getBitmap_url()==null){
-                holder.footerText.setText(GetTime.getYesterdayTime(time));
                 addNews(time+"");
                 time=GetTime.timeReduce(time);
+                holder.footerText.setText(GetTime.getYesterdayTime(time));
                 getItem(position).setBitmap_url("ADD_FINISH");
             }
         } else{
@@ -120,12 +122,12 @@ public  class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
     }
 
     //上拉添加新闻
-    public void addNews(final String time){
+    public void addNews(final String date){
         new Thread(new Runnable() {
             @Override
             public void run() {
                 JSONGetter jsonGetter=new JSONGetter();
-                String responseDate=jsonGetter.getResponseDate("http://news.at.zhihu.com/api/4/news/before/"+time);
+                String responseDate=jsonGetter.getResponseDate("http://news.at.zhihu.com/api/4/news/before/"+date);
                 try {
                     JSONArray jsonArray1=new JSONArray("["+responseDate+"]");
                     for (int i=0;i<jsonArray1.length();i++){
@@ -146,6 +148,7 @@ public  class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
                         News news=new News(title[i],news_IMG_URL[i],id[i]);
                         mNewsList.add(news);
                     }
+                    last_id=mNewsList.get(mNewsList.size()-1).getId();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }finally{

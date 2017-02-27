@@ -61,9 +61,10 @@ public class ThemeSetter {
                     for (int i=0;i<jsonArray.length();i++){
                         JSONObject jsonObject=jsonArray.getJSONObject(i);
                         news_URL=jsonObject.getString("stories");
-                        editor_URL=jsonObject.getString("editors");
                         background_URL=jsonObject.getString("background");
+                        editor_URL=jsonObject.getString("editors");
                     }
+
                     jsonArray=new JSONArray(news_URL);
                     news_IMG_URL=new String[jsonArray.length()];
                     title=new String[jsonArray.length()];
@@ -81,6 +82,7 @@ public class ThemeSetter {
                         News news=new News(title[i],news_IMG_URL[i],id[i]);
                         newsList.add(news);
                     }
+
                     jsonArray=new JSONArray(editor_URL);
                     editorsList.clear();
                     for(int i=0;i<jsonArray.length();i++){
@@ -112,7 +114,7 @@ public class ThemeSetter {
         RecyclerView recyclerView=(RecyclerView) homePage.findViewById(R.id.theme_rc);
         LinearLayoutManager layoutManager=new LinearLayoutManager(homePage);
         recyclerView.setLayoutManager(layoutManager);
-        ThemeAdapter themeAdapter=new ThemeAdapter(newsList,editorsList);
+        ThemeAdapter themeAdapter=new ThemeAdapter(newsList,editorsList,ThemeContent.id);
         recyclerView.setAdapter(themeAdapter);
 
     }
