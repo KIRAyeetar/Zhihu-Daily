@@ -43,7 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    style="@style/textstyle"/>
 
             </FrameLayout>
 
@@ -57,48 +58,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:gravity="center">
-                    <LinearLayout
-                        android:gravity="center_vertical|left"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="match_parent">
+                    android:gravity="center_vertical|left">
                         <Button
                             android:id="@+id/back"
                             android:layout_width="30dp"
+                            android:layout_weight="1"
                             android:layout_height="30dp"
                             android:background="@drawable/back" />
                         <Button
                             android:id="@+id/share_button"
-                            android:layout_marginLeft="85dp"
+                            android:layout_marginLeft="95dp"
                             android:layout_width="30dp"
+                            android:layout_weight="1"
                             android:layout_height="30dp"
                             android:gravity="center"
                             android:background="@drawable/share"/>
                         <Button
                             android:layout_marginLeft="25dp"
                             android:layout_width="30dp"
+                            android:layout_weight="1"
                             android:layout_height="30dp"
                             android:layout_marginRight="5dp"
                             android:gravity="center"
                             android:background="@drawable/remember"/>
-                    </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="2"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical|right"
-                        android:orientation="horizontal">
                         <Button
+                            android:layout_marginLeft="15dp"
                             android:id="@+id/comment_button"
                             android:layout_width="30dp"
+                            android:layout_weight="1"
                             android:layout_height="30dp"
-                            android:background="@drawable/discussion"/>
+                            android:background="@drawable/comment"/>
                         <TextView
                             android:layout_marginLeft="3dp"
                             android:textColor="#fff"
                             android:id="@+id/talk_text"
+                            android:textSize="15sp"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:gravity="center_vertical|left"
@@ -106,18 +101,20 @@
                         <Button
                             android:layout_marginLeft="15dp"
                             android:layout_width="30dp"
+                            android:layout_weight="1"
                             android:layout_height="30dp"
                             android:background="@drawable/good"/>
                         <TextView
                             android:layout_marginLeft="3dp"
                             android:textColor="#fff"
                             android:text="..."
+                            android:textSize="15sp"
                             android:id="@+id/good_text"
                             android:gravity="center_vertical|left"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:layout_marginRight="20dp"/>
-                    </LinearLayout>
+                            android:layout_marginRight="10dp"/>
+
 
                 </LinearLayout>
 

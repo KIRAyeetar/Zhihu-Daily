@@ -10,8 +10,9 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.administrator.internet.Editor.Editors;
 import com.example.administrator.internet.News.News;
-import com.example.administrator.internet.ToolClass.JSONGetter;
 import com.example.administrator.internet.R;
+import com.example.administrator.internet.ToolClass.AppContext;
+import com.example.administrator.internet.ToolClass.JSONGetter;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -82,21 +83,24 @@ public class ThemeSetter {
                         News news=new News(title[i],news_IMG_URL[i],id[i]);
                         newsList.add(news);
                     }
+                    theme_img= BitmapFactory.decodeStream(new URL(background_URL).openStream());
 
-                    jsonArray=new JSONArray(editor_URL);
                     editorsList.clear();
+                    jsonArray=new JSONArray(editor_URL);
                     for(int i=0;i<jsonArray.length();i++){
                         JSONObject jsonObject=jsonArray.getJSONObject(i);
                         avatar=BitmapFactory.decodeStream(new URL(jsonObject.getString("avatar")).openStream());
                         bio=jsonObject.getString("bio");
                         name=jsonObject.getString("name");
                         editor_url=jsonObject.getString("url");
-                        editorsList.add(new Editors(avatar,name, editor_url,bio));
+                        editorsList.add(new Editors(avatar,name,editor_url,bio));
                     }
-                    theme_img= BitmapFactory.decodeStream(new URL(background_URL).openStream());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }finally{
+                    if(editorsList.isEmpty()){
+                        editorsList.add(new Editors(BitmapFactory.decodeResource(AppContext.getContext().getResources(),R.drawable.mikato),"许多人",null,"其实就是没人"));
+                    }
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -116,8 +120,8 @@ public class ThemeSetter {
         recyclerView.setLayoutManager(layoutManager);
         ThemeAdapter themeAdapter=new ThemeAdapter(newsList,editorsList,ThemeContent.id);
         recyclerView.setAdapter(themeAdapter);
-
     }
+
     public static Bitmap getBitmap(){
         return theme_img;
     }

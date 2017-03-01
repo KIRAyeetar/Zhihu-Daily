@@ -3,6 +3,7 @@ package com.example.administrator.internet.ToolClass;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ public class AsyncNews extends AsyncTask<News,Void,Void>{
     Bitmap bitmap;
     String title;
     String id;
+    News news;
     private Map<String, SoftReference<Bitmap>> imageCache =
             new HashMap<String, SoftReference<Bitmap>>();
 
@@ -41,6 +43,7 @@ public class AsyncNews extends AsyncTask<News,Void,Void>{
 
     @Override
     protected Void doInBackground(News... news) {
+        this.news=news[0];
         bitmap=getIMG(news[0].getBitmap_url());
         title=news[0].getNews();
         id=news[0].getId();
@@ -53,10 +56,18 @@ public class AsyncNews extends AsyncTask<News,Void,Void>{
         }
         if (mTextView!=null)
         mTextView.setText(title);
+        if(News.beenReadNewsList.contains(news.getId())){
+            mTextView.setTextColor(Color.argb(255,215,215,215));
+        }
         //进入单个新闻界面
         simpleNewsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mTextView.setTextColor(Color.argb(255,215,215,215));
+
+                if(News.beenReadNewsList.contains(news)==false){
+                    News.beenReadNewsList.add(news.getId());
+                }
                 Intent intent=new Intent(AppContext.getContext(),NewsContent.class);
                 Bundle bundle=new Bundle();
 

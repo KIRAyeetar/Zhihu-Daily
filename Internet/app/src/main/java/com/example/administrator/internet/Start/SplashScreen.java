@@ -73,12 +73,12 @@ public class SplashScreen extends Activity {
                             responseDate=jsonObject.getString("creatives");
                         }
                         jsonArray=new JSONArray(responseDate);
-                        for (int i=0;i<jsonArray.length();i++){
+                        for (int i=0;i<1;i++){
                             JSONObject jsonObject=jsonArray.getJSONObject(0);
-                            text=jsonObject.getString("text");
                             imgURL=jsonObject.getString("url");
+                            bitmap= BitmapFactory.decodeStream(new URL(imgURL).openStream());
+                            text=jsonObject.getString("text");
                         }
-                        bitmap= BitmapFactory.decodeStream(new URL(imgURL).openStream());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

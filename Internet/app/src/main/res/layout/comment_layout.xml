@@ -38,7 +38,7 @@
         <Button
             android:id="@+id/change_comment"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="35dp"
             android:layout_gravity="bottom"
             android:background="#10008cdd"
             android:text="点击查看长评"/>

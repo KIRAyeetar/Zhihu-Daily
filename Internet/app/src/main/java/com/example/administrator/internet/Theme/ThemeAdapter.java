@@ -41,7 +41,10 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
     private Handler handler=new Handler(){
         public void handleMessage(Message msg){
             if(msg.what==LOAD_FINISHED){
-                ThemeAdapter.this.notifyItemChanged(Integer.valueOf(last_id));
+                try{
+                    ThemeAdapter.this.notifyItemChanged(Integer.valueOf(last_id));
+                }catch (Exception e){
+                }
             }
         }
     };
@@ -111,21 +114,19 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
         } else if (position!=0&&getItem(position).getId()==null){
             //Footer
             if(getItem(position).getId()==null){
-                holder.footerText.setText("之前专栏新闻");
+                holder.footerText.setText(null);
                 getItem(position).setId("ADD_FINISH");
                 addNews(id);
             }
         } else {
+            News news=getItem(position);
             //无图新闻
             if(getItem(position).getBitmap_url()=="NO_IMG"){
                 holder.simpleNewsView.setMinimumHeight(250);
-                News news=getItem(position);
                 AsyncNews asyncNews =new AsyncNews(null,holder.newsTitle,holder.simpleNewsView);
                 asyncNews.execute(news);
             }else {
                 //有图新闻
-                News news=getItem(position);
-                holder.newsTitle.setMaxWidth(660);
                 AsyncNews asyncNews =new AsyncNews(holder.newsImage,holder.newsTitle,holder.simpleNewsView);
                 asyncNews.execute(news);
             }

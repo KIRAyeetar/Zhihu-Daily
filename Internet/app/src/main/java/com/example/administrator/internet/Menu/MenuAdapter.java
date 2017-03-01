@@ -26,6 +26,7 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     public static final int ITEM_HEADER = 0;
     public static final int ITEM_CONTENT = 1;
     public static int TOBE_GRAY=0;
+    private View grayView;
     int viewType;
     Activity activity;
 
@@ -69,6 +70,7 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             //如果是需要变灰的“栏目”就变灰
             if (position==TOBE_GRAY){
                 holder.simpleMenuView.setBackgroundColor(Color.argb(255,228,228,228));
+                this.grayView=holder.simpleMenuView;
             }
 
             String name=getItem(position).getName();
@@ -76,7 +78,10 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             holder.simpleMenuView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //已经灰了的变白，点击的变灰
+                    grayView.setBackgroundColor(Color.argb(255,255,255,255));
                     holder.simpleMenuView.setBackgroundColor(Color.argb(255,228,228,228));
+
                     Intent intent=new Intent(activity,ThemeContent.class);
                     Bundle bundle=new Bundle();
                     bundle.putInt("gray_position",position);
@@ -95,11 +100,12 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             //如果“主页”需要变灰就变灰
             if (position==TOBE_GRAY){
                 holder.linearLayout.setBackgroundColor(Color.argb(255,228,228,228));
+                this.grayView=holder.linearLayout;
             }
-
             holder.linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    grayView.setBackgroundColor(Color.argb(255,255,255,255));
                     SlideSetter.ImageHandler.currentItem=0;
                     holder.linearLayout.setBackgroundColor(Color.argb(255,228,228,228));
                     TOBE_GRAY=0;
