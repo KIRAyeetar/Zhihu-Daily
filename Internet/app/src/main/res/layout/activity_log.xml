@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/activity_log"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#edebeb">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="@color/title_blue"
+            android:gravity="center_vertical|left">
+
+            <Button android:id="@+id/back_button"
+                android:layout_marginLeft="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/back"/>
+
+            <TextView android:layout_marginLeft="6dp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="登录"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_marginTop="15dp"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:layout_gravity="center"
+            android:padding="1dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="right"
+                android:padding="5dip" />
+
+            <EditText
+                android:id="@+id/log_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="请输入昵称"
+                android:scrollHorizontally="true" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="right"
+                android:padding="5dip" />
+            <EditText
+                android:id="@+id/log_password"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="请输入密码"
+                android:scrollHorizontally="true"
+                android:password="true"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right">
+
+                <Button
+                    android:id="@+id/forget_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="忘记密码"
+                    android:background="#fff"
+                    android:textColor="#00c300" />
+
+                <Button
+                    android:id="@+id/Registe_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:text="快速注册"
+                    android:textColor="#00c300"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_marginTop="20dp"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="点击登录"
+            android:background="#fff"
+            android:textColor="#00c300"
+            android:elevation="0dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

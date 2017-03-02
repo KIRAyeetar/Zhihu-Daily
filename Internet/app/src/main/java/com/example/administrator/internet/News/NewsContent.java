@@ -68,7 +68,10 @@ public class NewsContent extends Activity {
         imgRes=(TextView)findViewById(R.id.img_res);
         imgTitle.setText(img_title);
 
+        //获取额外信息并设置界面
         getJson(id);
+
+        //设置返回键
         back=(Button)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +122,8 @@ public class NewsContent extends Activity {
     }
 
     private void setWebView(final String body,final String good,final String talk,final  String image_source,final String css){
+
+        //主新闻界面
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -138,6 +143,7 @@ public class NewsContent extends Activity {
                     imageView.setImageBitmap(bitmap);
                 }
 
+                //分享提示
                 share.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -147,6 +153,7 @@ public class NewsContent extends Activity {
                     }
                 });
 
+                //跳入评论界面
                 comment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -166,6 +173,4 @@ public class NewsContent extends Activity {
             }
         });
     }
-
-
 }

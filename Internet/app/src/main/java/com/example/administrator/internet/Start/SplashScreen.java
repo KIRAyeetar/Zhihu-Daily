@@ -24,7 +24,7 @@ public class SplashScreen extends Activity {
     String responseDate;
     ImageView imageView;
     TextView textView;
-    Bitmap bitmap=null;
+    public static Bitmap bitmap=null;
     String text=null;
     String imgURL=null;
     final Activity activity=this;

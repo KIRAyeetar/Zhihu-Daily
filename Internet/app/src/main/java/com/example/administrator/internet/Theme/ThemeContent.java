@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.administrator.internet.Menu.MenuSetter;
 import com.example.administrator.internet.R;
+import com.example.administrator.internet.ToolClass.AppContext;
 
 /**
  * Created by Administrator on 2017/2/19 0019.
@@ -23,6 +24,7 @@ public class ThemeContent extends Activity{
     private static int gray_position=0;
 
     protected void onCreate(Bundle savedInstanceState) {
+        AppContext.activity=this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.theme_layout);
         Bundle bundle=getIntent().getExtras();
@@ -39,7 +41,6 @@ public class ThemeContent extends Activity{
         TextView textView=(TextView)findViewById(R.id.theme_title_text);
         textView.setText(name);
 
-
         //设置侧拉
         Button menu=(Button) findViewById(R.id.menu_button);
         final DrawerLayout drawerLayout=(DrawerLayout) findViewById(R.id.drawer_layout_homepage);
@@ -53,7 +54,6 @@ public class ThemeContent extends Activity{
         //最新新闻
         ThemeSetter themeSetter=new ThemeSetter();
         themeSetter.setIMGFromInternet("http://news-at.zhihu.com/api/4/theme/"+id,this,img_url);
-
     }
     public static String getDescription(){
         return description;

@@ -38,6 +38,13 @@
         <activity
             android:name=".Editor.EditorWebView">
         </activity>
+        <activity
+            android:name=".User.Log">
+        </activity>
+        <activity
+            android:name=".User.Register">
+        </activity>
+
 
     </application>
 </manifest>
